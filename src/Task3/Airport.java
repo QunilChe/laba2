@@ -9,7 +9,7 @@ public class Airport {
         this.name = name;
     }
 
-    // Метод для редагування коду аеропорту
+
     public void setCode(String code) {
         this.code = code;
     }
@@ -25,5 +25,5 @@ public class Airport {
     public String getName() {
         return name;
     }
-    // Інші методи та геттери/сеттери, які можуть бути потрібні
+
 }

@@ -26,7 +26,4 @@ public class Passenger {
         this.passportNumber = passportNumber;
     }
 
-
-    // Методи для редагування даних про пасажира
-    // Інші методи та геттери/сеттери
 }

@@ -1,104 +1,128 @@
 package Task3;
 
-import java.util.Date;
+import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // Створення літаків
+        // Airline Management System
+        // AirlineManagementSystem airlineSystem = new AirlineManagementSystem();
+
+        // Creating aircraft
         Aircraft aircraft1 = new Aircraft("Boeing 737", 150);
         Aircraft aircraft2 = new Aircraft("Airbus A320", 180);
 
-        // Відображення інформації про літаки
-        System.out.println("Літак 1: Модель - " + aircraft1.getModel() + ", Вмістимість - " + aircraft1.getCapacity());
-        System.out.println("Літак 2: Модель - " + aircraft2.getModel() + ", Вмістимість - " + aircraft2.getCapacity());
+        // Displaying aircraft information
+        System.out.println("Aircraft 1: Model - " + aircraft1.getModel() + ", Capacity - " + aircraft1.getCapacity());
+        System.out.println("Aircraft 2: Model - " + aircraft2.getModel() + ", Capacity - " + aircraft2.getCapacity());
 
-        // Редагування даних про літаки
+        // Editing aircraft data
         aircraft1.editModel("Boeing 747");
         aircraft2.editCapacity(200);
 
+        // Displaying updated aircraft information
+        System.out.println("Aircraft 1 (after editing): Model - " + aircraft1.getModel() + ", Capacity - " + aircraft1.getCapacity());
+        System.out.println("Aircraft 2 (after editing): Model - " + aircraft2.getModel() + ", Capacity - " + aircraft2.getCapacity());
 
-        // Відображення оновленої інформації про літаки
-        System.out.println("Літак 1 (після редагування): Модель - " + aircraft1.getModel() + ", Вмістимість - " + aircraft1.getCapacity());
-        System.out.println("Літак 2 (після редагування): Модель - " + aircraft2.getModel() + ", Вмістимість - " + aircraft2.getCapacity());
-
-
+        // Creating airports
         Airport airport1 = new Airport("JFK", "John F. Kennedy International Airport");
         Airport airport2 = new Airport("LAX", "Los Angeles International Airport");
 
-        // Відображення інформації про аеропорти
-        System.out.println("Аеропорт 1: Код - " + airport1.getCode() + ", Назва - " + airport1.getName());
-        System.out.println("Аеропорт 2: Код - " + airport2.getCode() + ", Назва - " + airport2.getName());
+        // Displaying airport information
+        System.out.println("Airport 1: Code - " + airport1.getCode() + ", Name - " + airport1.getName());
+        System.out.println("Airport 2: Code - " + airport2.getCode() + ", Name - " + airport2.getName());
 
-        // Редагування даних про аеропорти
+        // Editing airport data
         airport1.setName("JFK Airport");
         airport2.setCode("LAX1");
 
-        // Відображення оновленої інформації про аеропорти
-        System.out.println("Аеропорт 1 (після редагування): Код - " + airport1.getCode() + ", Назва - " + airport1.getName());
-        System.out.println("Аеропорт 2 (після редагування): Код - " + airport2.getCode() + ", Назва - " + airport2.getName());
+        // Displaying updated airport information
+        System.out.println("Airport 1 (after editing): Code - " + airport1.getCode() + ", Name - " + airport1.getName());
+        System.out.println("Airport 2 (after editing): Code - " + airport2.getCode() + ", Name - " + airport2.getName());
 
-
-        Flight flight1 = new Flight("FL123", aircraft1, airport1, airport2, new Date(), new Date());
-        Flight flight2 = new Flight("FL456", aircraft2, airport2, airport1, new Date(), new Date());
-
-        // Відображення інформації про рейси
-        System.out.println("Рейс 1: Номер - " + flight1.getFlightNumber() + ", Модель літака - " + flight1.getAircraft().getModel());
-        System.out.println("Рейс 2: Номер - " + flight2.getFlightNumber() + ", Модель літака - " + flight2.getAircraft().getModel());
-
-        // Редагування даних про рейси
-        flight1.setFlightNumber("FL789");
-        flight2.getAircraft().editModel("Boeing 777");
-
-        // Відображення оновленої інформації про рейси
-        System.out.println("Рейс 1 (після редагування): Номер - " + flight1.getFlightNumber() + ", Модель літака - " + flight1.getAircraft().getModel());
-        System.out.println("Рейс 2 (після редагування): Номер - " + flight2.getFlightNumber() + ", Модель літака - " + flight2.getAircraft().getModel());
-
-
+        // Creating passengers
         Passenger passenger1 = new Passenger("John Smith", "AB123456");
         Passenger passenger2 = new Passenger("Alice Johnson", "CD789012");
 
-        // Відображення інформації про пасажирів
-        System.out.println("Пасажир 1: Ім'я - " + passenger1.getName() + ", Номер паспорта - " + passenger1.getPassportNumber());
-        System.out.println("Пасажир 2: Ім'я - " + passenger2.getName() + ", Номер паспорта - " + passenger2.getPassportNumber());
+        // Displaying passenger information
+        System.out.println("Passenger 1: Name - " + passenger1.getName() + ", Passport Number - " + passenger1.getPassportNumber());
+        System.out.println("Passenger 2: Name - " + passenger2.getName() + ", Passport Number - " + passenger2.getPassportNumber());
 
-        // Редагування даних про пасажирів
+        // Editing passenger data
         passenger1.setName("John Johnson");
         passenger2.setPassportNumber("EF456789");
 
-        // Відображення оновленої інформації про пасажирів
-        System.out.println("Пасажир 1 (після редагування): Ім'я - " + passenger1.getName() + ", Номер паспорта - " + passenger1.getPassportNumber());
-        System.out.println("Пасажир 2 (після редагування): Ім'я - " + passenger2.getName() + ", Номер паспорта - " + passenger2.getPassportNumber());
+        // Displaying updated passenger information
+        System.out.println("Passenger 1 (after editing): Name - " + passenger1.getName() + ", Passport Number - " + passenger1.getPassportNumber());
+        System.out.println("Passenger 2 (after editing): Name - " + passenger2.getName() + ", Passport Number - " + passenger2.getPassportNumber());
 
+        System.out.println("RACES");
+        // AirlineManagementSystem.displayFlightSchedule;
 
-        // Створення системи управління авіакомпанією
+        // Creating an airline management system object with an existing list of flights
         AirlineManagementSystem airlineSystem = new AirlineManagementSystem();
 
-        // Додавання рейсів до системи
-        airlineSystem.addFlight(flight1);
-        airlineSystem.addFlight(flight2);
+        // Creating flights
+        airlineSystem.createFlight("FL123", aircraft1, airport1, airport2, new Date(), new Date());
+        airlineSystem.createFlight("FL456", aircraft2, airport2, airport1, new Date(), new Date());
 
-        // Відображення розкладів польотів
-        List<Flight> flights = airlineSystem.getFlights();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        // Displaying flight schedule
+        System.out.println("Flight Schedule:");
+        airlineSystem.displayFlightSchedule();
 
-        System.out.println("Розклад польотів:");
+        // Editing a flight
+        airlineSystem.editFlight("FL123", "FL789", aircraft1, airport1, airport2, new Date(), new Date());
 
-        for (Flight flight : flights) {
-            System.out.println("Рейс: " + flight.getFlightNumber());
-            System.out.println("Літак: " + flight.getAircraft().getModel());
-            System.out.println("Відправлення з: " + flight.getDepartureAirport().getName() +
-                    " (" + flight.getDepartureAirport().getCode() + ")");
-            System.out.println("Призначення: " + flight.getArrivalAirport().getName() +
-                    " (" + flight.getArrivalAirport().getCode() + ")");
-            System.out.println("Час відправлення: " + dateFormat.format(flight.getDepartureTime()));
-            System.out.println("Час прибуття: " + dateFormat.format(flight.getArrivalTime()));
-            System.out.println();
+        // Displaying the updated flight schedule
+        System.out.println("Updated Flight Schedule:");
+        airlineSystem.displayFlightSchedule();
 
+        // Ticket sales
+        Ticket ticket1 = new Ticket("T123", passenger1, airlineSystem.getFlights().get(0), 100.0);
+        Ticket ticket2 = new Ticket("T456", passenger2, airlineSystem.getFlights().get(1), 120.0);
 
+        // Ticket sales
+        ticket1.sellTicket(new Date());
+        ticket2.sellTicket(new Date());
+
+        // Displaying ticket data
+        System.out.println("Ticket Data:");
+        System.out.println("Ticket 1: " + ticket1.getTicketId() + ", Sold on: " + ticket1.getSaleDate());
+        System.out.println("Ticket 2: " + ticket2.getTicketId() + ", Sold on: " + ticket2.getSaleDate());
+
+        // Ticket cancellation
+        // ticket1.cancelTicket();
+        ticket2.cancelTicket();
+
+        // Displaying ticket status
+        System.out.println("Ticket Status:");
+        System.out.println("Ticket 1 is canceled: " + ticket1.isCancelled());
+        System.out.println("Ticket 2 is canceled: " + ticket2.isCancelled());
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2023, Calendar.SEPTEMBER, 1); // September 1, 2023
+        Date startDate = calendar.getTime();
+
+        calendar.add(Calendar.MONTH, 6); // Adding 6 months to the date
+        Date endDate = calendar.getTime();
+
+        double totalRevenue = 0.0;
+
+        if (!ticket1.isCancelled()) {
+            Date saleDate = ticket1.getSaleDate();
+            if (saleDate != null && saleDate.after(startDate) && saleDate.before(endDate)) {
+                totalRevenue += ticket1.getPrice();
+            }
         }
+
+        if (!ticket2.isCancelled()) {
+            Date saleDate = ticket2.getSaleDate();
+            if (saleDate != null && saleDate.after(startDate) && saleDate.before(endDate)) {
+                totalRevenue += ticket2.getPrice();
+            }
+        }
+
+        System.out.println("Total revenue for the period: " + totalRevenue);
     }
 }

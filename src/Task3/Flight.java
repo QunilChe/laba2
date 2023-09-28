@@ -18,7 +18,7 @@ public class Flight {
         this.arrivalTime = arrivalTime;
     }
 
-    // Геттери та сеттери для полів рейсу
+
     public String getFlightNumber() {
         return flightNumber;
     }

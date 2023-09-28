@@ -5,46 +5,67 @@ import java.util.Date;
 import java.util.List;
 
 public class AirlineManagementSystem {
-    private List<Ticket> tickets;
-
-    public AirlineManagementSystem() {
-        this.tickets = new ArrayList<>();
-    }
-
-    // Метод для додавання квитка до системи
-    public void addTicket(Ticket ticket) {
-        this.tickets.add(ticket);
-    }
-
-    // Метод для розрахунку доходів за заданий період часу
-    public double calculateRevenueForPeriod(Date startDate, Date endDate) {
-        double revenue = 0.0;
-
-        for (Ticket ticket : tickets) {
-            Date saleDate = ticket.getSaleDate();
-
-            // Перевіряємо, чи квиток був проданий в межах заданого періоду
-            if (!ticket.isCancelled() && saleDate != null && saleDate.after(startDate) && saleDate.before(endDate)) {
-                revenue += ticket.getPrice();
-            }
-        }
-
-        return revenue;
-    }
-
-
     private List<Flight> flights;
 
+    public AirlineManagementSystem() {
+        flights = new ArrayList<>();
+    }
 
-    // Додавання рейсу
-    public void addFlight(Flight flight) {
+    // Method to create a flight
+    public void createFlight(String flightNumber, Aircraft aircraft, Airport departureAirport, Airport arrivalAirport, Date departureTime, Date arrivalTime) {
+        Flight flight = new Flight(flightNumber, aircraft, departureAirport, arrivalAirport, departureTime, arrivalTime);
         flights.add(flight);
     }
 
-    // Отримання списку рейсів
+    // Include the getFlights() method in the AirlineManagementSystem class
     public List<Flight> getFlights() {
         return flights;
     }
 
-    // Інші методи для управління системою, наприклад, додавання/видалення рейсів, пасажирів, літаків і т. д.
+    // Method to delete a flight by flight number
+    public void deleteFlight(String flightNumber) {
+        Flight flightToRemove = null;
+        for (Flight flight : flights) {
+            if (flight.getFlightNumber().equals(flightNumber)) {
+                flightToRemove = flight;
+                break;
+            }
+        }
+        if (flightToRemove != null) {
+            flights.remove(flightToRemove);
+        }
+    }
+
+    // Method to edit a flight by flight number
+    public void editFlight(String flightNumber, String newFlightNumber, Aircraft newAircraft, Airport newDepartureAirport, Airport newArrivalAirport, Date newDepartureTime, Date newArrivalTime) {
+        for (Flight flight : flights) {
+            if (flight.getFlightNumber().equals(flightNumber)) {
+                flight.setFlightNumber(newFlightNumber);
+                flight.setAircraft(newAircraft);
+                flight.setDepartureAirport(newDepartureAirport);
+                flight.setArrivalAirport(newArrivalAirport);
+                flight.setDepartureTime(newDepartureTime);
+                flight.setArrivalTime(newArrivalTime);
+                break;
+            }
+        }
+    }
+
+    // Method to display flight schedules
+    public void displayFlightSchedule() {
+        for (Flight flight : flights) {
+            System.out.println("Flight: " + flight.getFlightNumber());
+            System.out.println("Aircraft: " + flight.getAircraft().getModel());
+            System.out.println("Departure from: " + flight.getDepartureAirport().getName());
+            System.out.println("Destination: " + flight.getArrivalAirport().getName());
+            System.out.println("Departure time: " + flight.getDepartureTime());
+            System.out.println("Arrival time: " + flight.getArrivalTime());
+            System.out.println();
+        }
+    }
+
+    // Method to create a flight schedule (this can be additional logic)
+    public void createFlightSchedule() {
+        // Add logic to create a flight schedule here
+    }
 }

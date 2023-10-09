@@ -26,43 +26,37 @@ public class AirlineManagementSystem {
 
     // Method to delete a flight by flight number
     public void deleteFlight(String flightNumber) {
-        Flight flightToRemove = null;
-        for (Flight flight : flights) {
-            if (flight.getFlightNumber().equals(flightNumber)) {
-                flightToRemove = flight;
-                break;
-            }
-        }
-        if (flightToRemove != null) {
-            flights.remove(flightToRemove);
-        }
+        flights.removeIf(flight -> flight.getFlightNumber().equals(flightNumber));
     }
+
 
     // Method to edit a flight by flight number
     public void editFlight(String flightNumber, String newFlightNumber, Aircraft newAircraft, Airport newDepartureAirport, Airport newArrivalAirport, Date newDepartureTime, Date newArrivalTime) {
-        for (Flight flight : flights) {
-            if (flight.getFlightNumber().equals(flightNumber)) {
-                flight.setFlightNumber(newFlightNumber);
-                flight.setAircraft(newAircraft);
-                flight.setDepartureAirport(newDepartureAirport);
-                flight.setArrivalAirport(newArrivalAirport);
-                flight.setDepartureTime(newDepartureTime);
-                flight.setArrivalTime(newArrivalTime);
-                break;
-            }
+        Flight flightToEdit = findFlightByNumber(flightNumber);
+        if (flightToEdit != null) {
+            flightToEdit.setFlightNumber(newFlightNumber);
+            flightToEdit.setAircraft(newAircraft);
+            flightToEdit.setDepartureAirport(newDepartureAirport);
+            flightToEdit.setArrivalAirport(newArrivalAirport);
+            flightToEdit.setDepartureTime(newDepartureTime);
+            flightToEdit.setArrivalTime(newArrivalTime);
         }
     }
+
+    private Flight findFlightByNumber(String flightNumber) {
+        for (Flight flight : flights) {
+            if (flight.getFlightNumber().equals(flightNumber)) {
+                return flight;
+            }
+        }
+        return null;
+    }
+
 
     // Method to display flight schedules
     public void displayFlightSchedule() {
         for (Flight flight : flights) {
-            System.out.println("Flight: " + flight.getFlightNumber());
-            System.out.println("Aircraft: " + flight.getAircraft().getModel());
-            System.out.println("Departure from: " + flight.getDepartureAirport().getName());
-            System.out.println("Destination: " + flight.getArrivalAirport().getName());
-            System.out.println("Departure time: " + flight.getDepartureTime());
-            System.out.println("Arrival time: " + flight.getArrivalTime());
-            System.out.println();
+            System.out.println(flight);
         }
     }
 
@@ -70,7 +64,8 @@ public class AirlineManagementSystem {
 
 
 
-        public void sellTicket(Ticket ticket, Date saleDate) {
+
+    public void sellTicket(Ticket ticket, Date saleDate) {
             if (!ticket.isCancelled()) {
                 if (ticket.getSaleDate() == null) {
                     ticket.sellTicket(saleDate);

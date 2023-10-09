@@ -18,6 +18,15 @@ public class Flight {
         this.arrivalTime = arrivalTime;
     }
 
+    @Override
+    public String toString() {
+        return "Flight: " + flightNumber + "\n" +
+                "Aircraft: " + aircraft.getModel() + "\n" +
+                "Departure from: " + departureAirport.getName() + "\n" +
+                "Destination: " + arrivalAirport.getName() + "\n" +
+                "Departure time: " + departureTime + "\n" +
+                "Arrival time: " + arrivalTime + "\n";
+    }
 
     public String getFlightNumber() {
         return flightNumber;

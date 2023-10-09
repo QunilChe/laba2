@@ -107,21 +107,16 @@ public class Main {
         calendar.add(Calendar.MONTH, 6); // Adding 6 months to the date
         Date endDate = calendar.getTime();
 
-        double totalRevenue = 0.0;
 
         if (!ticket1.isCancelled()) {
-            Date saleDate = ticket1.getSaleDate();
-            if (saleDate != null && saleDate.after(startDate) && saleDate.before(endDate)) {
-                totalRevenue += ticket1.getPrice();
-            }
-        }
-
+        airlineSystem.addTicket(ticket1);}
         if (!ticket2.isCancelled()) {
-            Date saleDate = ticket2.getSaleDate();
-            if (saleDate != null && saleDate.after(startDate) && saleDate.before(endDate)) {
-                totalRevenue += ticket2.getPrice();
-            }
-        }
+            airlineSystem.addTicket(ticket2);}
+
+
+
+
+         double totalRevenue = airlineSystem.calculateTotalRevenue(startDate, endDate);
 
         System.out.println("Total revenue for the period: " + totalRevenue);
     }

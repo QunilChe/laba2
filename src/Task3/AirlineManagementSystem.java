@@ -6,9 +6,11 @@ import java.util.List;
 
 public class AirlineManagementSystem {
     private List<Flight> flights;
+    private List<Ticket> tickets;
 
     public AirlineManagementSystem() {
         flights = new ArrayList<>();
+        tickets = new ArrayList<>();
     }
 
     // Method to create a flight
@@ -88,8 +90,20 @@ public class AirlineManagementSystem {
             }
         }
 
-        // Інші методи класу
+    public void addTicket(Ticket ticket) {
+        tickets.add(ticket);
+    }
 
-
-
+    public double calculateTotalRevenue(Date startDate, Date endDate) {
+        double totalRevenue = 0.0;
+        for (Ticket ticket : tickets) { // Припустимо, що tickets - це список всіх квитків у системі
+            if (!ticket.isCancelled()) {
+                Date saleDate = ticket.getSaleDate();
+                if (saleDate != null && saleDate.after(startDate) && saleDate.before(endDate)) {
+                    totalRevenue += ticket.getPrice();
+                }
+            }
+        }
+        return totalRevenue;
+    }
 }

@@ -1,5 +1,5 @@
 package Task3;
-
+import Task3.Ticket;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -64,8 +64,32 @@ public class AirlineManagementSystem {
         }
     }
 
-    // Method to create a flight schedule (this can be additional logic)
-    public void createFlightSchedule() {
-        // Add logic to create a flight schedule here
-    }
+
+
+
+
+        public void sellTicket(Ticket ticket, Date saleDate) {
+            if (!ticket.isCancelled()) {
+                if (ticket.getSaleDate() == null) {
+                    ticket.sellTicket(saleDate);
+                } else {
+                    System.out.println("Квиток вже проданий.");
+                }
+            } else {
+                System.out.println("Квиток скасований.");
+            }
+        }
+
+        public void cancelTicket(Ticket ticket) {
+            if (!ticket.isCancelled()) {
+                ticket.cancelTicket();
+            } else {
+                System.out.println("Квиток вже скасований.");
+            }
+        }
+
+        // Інші методи класу
+
+
+
 }

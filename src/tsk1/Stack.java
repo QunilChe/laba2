@@ -1,19 +1,11 @@
+package tsk1;
+// Stack.java
+import tsk1.StackNode;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-// Клас, що представляє елемент стеку (вузол однозв'язного списку)
-class StackNode<T> {
-    T data; // Дані, які зберігаються в вузлі
-    StackNode<T> next; // Вказівник на наступний елемент стеку
-
-    public StackNode(T data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
-// Клас для реалізації стеку
-class Stack<T> {
+public class Stack<T> implements Iterable<T> {
     private StackNode<T> top; // Вершина стеку
 
     public Stack() {
@@ -42,9 +34,10 @@ class Stack<T> {
         return top == null;
     }
 
-    // Метод для обходу стеку за допомогою for-each
-    public Iterable<T> iterable() {
-        return () -> new Iterator<T>() {
+    // Реалізація інтерфейсу Iterable<T>
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
             private StackNode<T> current = top;
 
             @Override
@@ -64,5 +57,3 @@ class Stack<T> {
         };
     }
 }
-
-

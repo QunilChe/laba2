@@ -1,6 +1,6 @@
 package geometric.shapes;
 
-public class Triangle {
+public class Triangle extends GeometricShape {
     private double base;
     private double height;
 
@@ -9,8 +9,13 @@ public class Triangle {
         this.height = height;
     }
 
+    @Override
     public double calculateArea() {
         return 0.5 * base * height;
     }
-}
 
+    @Override
+    public double calculateVolume() {
+        return 0;
+    }
+}

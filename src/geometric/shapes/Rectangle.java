@@ -1,6 +1,6 @@
 package geometric.shapes;
 
-public class Rectangle {
+public class Rectangle extends GeometricShape {
     private double length;
     private double width;
 
@@ -9,7 +9,13 @@ public class Rectangle {
         this.width = width;
     }
 
+    @Override
     public double calculateArea() {
         return length * width;
+    }
+
+    @Override
+    public double calculateVolume() {
+        return 0;
     }
 }

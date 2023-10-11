@@ -1,6 +1,6 @@
 package geometric.shapes;
 
-public class Cube extends GeometricShape {
+public class Cube extends StereometricShape {
     private double side;
 
     public Cube(double side) {

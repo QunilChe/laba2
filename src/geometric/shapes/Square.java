@@ -12,8 +12,5 @@ public class Square extends GeometricShape {
         return side * side;
     }
 
-    @Override
-    public double calculateVolume() {
-        return 0;
-    }
+
 }

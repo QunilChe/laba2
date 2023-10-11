@@ -1,6 +1,6 @@
 package geometric.shapes;
 
-public class Pyramid extends GeometricShape {
+public class Pyramid extends StereometricShape {
     private double baseArea;
     private double height;
 

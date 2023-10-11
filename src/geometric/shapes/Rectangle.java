@@ -14,8 +14,5 @@ public class Rectangle extends GeometricShape {
         return length * width;
     }
 
-    @Override
-    public double calculateVolume() {
-        return 0;
-    }
+
 }

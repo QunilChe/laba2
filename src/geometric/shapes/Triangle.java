@@ -14,8 +14,5 @@ public class Triangle extends GeometricShape {
         return 0.5 * base * height;
     }
 
-    @Override
-    public double calculateVolume() {
-        return 0;
-    }
+
 }

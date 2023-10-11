@@ -1,6 +1,6 @@
 package geometric.shapes;
 
-public class Sphere extends GeometricShape {
+public class Sphere extends StereometricShape {
     private double radius;
 
     public Sphere(double radius) {

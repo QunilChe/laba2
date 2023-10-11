@@ -12,9 +12,6 @@ public class Circle extends GeometricShape {
         return Math.PI * radius * radius;
     }
 
-    @Override
-    public double calculateVolume() {
-        return 0;
-    }
+
 
 }

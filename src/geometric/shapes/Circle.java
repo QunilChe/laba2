@@ -14,7 +14,7 @@ public class Circle extends GeometricShape {
 
     @Override
     public double calculateVolume() {
-        return 0;  // Коло - це 2D фігура, тому об'єм рівний 0.
+        return 0;
     }
 
 }

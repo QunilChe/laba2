@@ -1,8 +1,8 @@
 package tsk1;
 
 public class StackNode<T> {
-    private T data; // Дані, які зберігаються в вузлі
-    private StackNode<T> next; // Вказівник на наступний елемент стеку
+    private T data;
+    private StackNode<T> next;
 
     public StackNode(T data) {
         this.data = data;

@@ -11,8 +11,7 @@ public class Pyramid extends GeometricShape {
 
     @Override
     public double calculateArea() {
-        // Формула площі піраміди: A = (baseArea) + (0.5 * perimeter * slantHeight), де perimeter - довжина основи, slantHeight - схилення піраміди
-        double perimeter = Math.sqrt(4 * baseArea); // Для квадрата, довжина основи - 4 * сторона
+        double perimeter = Math.sqrt(4 * baseArea);
         double slantHeight = Math.sqrt(Math.pow(height, 2) + Math.pow(perimeter / 2, 2));
         double surfaceArea = baseArea + (0.5 * perimeter * slantHeight);
         return surfaceArea;

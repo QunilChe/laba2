@@ -14,6 +14,6 @@ public class Square extends GeometricShape {
 
     @Override
     public double calculateVolume() {
-        return 0;  // Квадрат - це 2D фігура, тому об'єм рівний 0.
+        return 0;
     }
 }
